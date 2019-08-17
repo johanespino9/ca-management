@@ -39,5 +39,10 @@ export default [
     path: '/upgrade',
     name: 'Upgrade to PRO',
     view: 'Upgrade'
+  },
+  {
+    path: '/leads',
+    name: 'Gestion de leads',
+    view: 'Leads-crud'
   }
 ]
