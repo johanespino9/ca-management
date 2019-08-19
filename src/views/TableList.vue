@@ -12,10 +12,49 @@
         md12
       >
         <material-card
-          color="green"
-          title="Simple Table"
-          text="Here is a subtitle for this table"
+          color="black"
+          title="Gestión de Leads"
+          text="Aquí podrá visualizar el estado de sus leads"
         >
+        <template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12">
+        <v-combobox
+          v-model="select"
+          :items="items"
+          label="Seleccionar Hotel"
+        ></v-combobox>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+<template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12">
+        <v-combobox
+          v-model="select"
+          :items="items"
+          label="Seleccionar Año"
+        ></v-combobox>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+<template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12">
+        <v-combobox
+          v-model="select"
+          :items="items"
+          label="Seleccionar Mes"
+        ></v-combobox>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
           <v-data-table
             :headers="headers"
             :items="items"
@@ -34,114 +73,106 @@
               slot="items"
               slot-scope="{ item }"
             >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
+              <td>{{ item.lead }}</td>
+              <td>{{ item.prospecto }}</td>
+              <td>{{ item.tentativo }}</td>
+              <td>{{ item.hot }}</td>
+              <td>{{ item.confirmado }}</td>
+              <td>{{ item.congelado }}</td>
+              <td>{{ item.cancelado }}</td>
               <td class="text-xs-right">{{ item.salary }}</td>
             </template>
           </v-data-table>
+          
         </material-card>
       </v-flex>
       <v-flex
         md12
       >
-        <material-card
-          color="green"
-          flat
-          full-width
-          title="Table on Plain Background"
-          text="Here is a subtitle for this table"
-        >
-          <v-data-table
-            :headers="headers"
-            :items="items.slice(0, 7)"
-            hide-actions
-          >
-            <template
-              slot="headerCell"
-              slot-scope="{ header }"
-            >
-              <span
-                class="subheading font-weight-light text--darken-3"
-                v-text="header.text"
-              />
-            </template>
-            <template
-              slot="items"
-              slot-scope="{ item }"
-            >
-              <td>{{ item.name }}</td>
-              <td>{{ item.country }}</td>
-              <td>{{ item.city }}</td>
-              <td class="text-xs-right">{{ item.salary }}</td>
-            </template>
-          </v-data-table>
-        </material-card>
+        
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+
 export default {
   data: () => ({
     headers: [
       {
         sortable: false,
-        text: 'Name',
-        value: 'name'
+        text: 'Lead',
+        value: 'lead'
       },
       {
         sortable: false,
-        text: 'Country',
-        value: 'country'
+        text: 'Prospecto',
+        value: 'prospecto'
       },
       {
         sortable: false,
-        text: 'City',
-        value: 'city'
+        text: 'Tentativo',
+        value: 'tentativo'
       },
       {
         sortable: false,
-        text: 'Salary',
-        value: 'salary',
-        align: 'right'
-      }
+        text: 'Hot',
+        value: 'hot'
+      },
+      {
+        sortable: false,
+        text: 'Confirmado',
+        value: 'confirmado'
+      },
+      {
+        sortable: false,
+        text: 'Congelado',
+        value: 'congelado'
+      },
+      {
+        sortable: false,
+        text: 'Cancelado',
+        value: 'cancelado'
+      },
     ],
     items: [
       {
-        name: 'Dakota Rice',
-        country: 'Niger',
-        city: 'Oud-Tunrhout',
-        salary: '$35,738'
+        lead: 'Cantidad',
+        prospecto: '5',
+        tentativo: '1',
+        hot: '1',
+        confirmado: '1',
+        congelado: '1',
+        cancelado: '1'
       },
       {
-        name: 'Minerva Hooper',
-        country: 'Curaçao',
-        city: 'Sinaai-Waas',
-        salary: '$23,738'
+        lead: 'Room Revenue',
+        prospecto: 'S/.20.000',
+        tentativo: 'S/.10.000',
+        hot: 'S/.8.000',
+        confirmado: 'S/.40.000',
+        congelado: 'S/.10.000',
+        cancelado: 'S/.15.000'
       }, {
-        name: 'Sage Rodriguez',
-        country: 'Netherlands',
-        city: 'Overland Park',
-        salary: '$56,142'
+        lead: 'Eventos',
+        prospecto: 'S/.30.000',
+        tentativo: 'S/.20.000',
+        hot: 'S/.8.000',
+        confirmado: 'S/.40.000',
+        congelado: 'S/.11.000',
+        cancelado: 'S/.13.000'
       }, {
-        name: 'Philip Chanley',
-        country: 'Korea, South',
-        city: 'Gloucester',
-        salary: '$38,735'
-      }, {
-        name: 'Doris Greene',
-        country: 'Malawi',
-        city: 'Feldkirchen in Kārnten',
-        salary: '$63,542'
-      }, {
-        name: 'Mason Porter',
-        country: 'Chile',
-        city: 'Gloucester',
-        salary: '$78,615'
+        lead: 'No atentidos',
+        prospecto: '1',
+        tentativo: '4',
+        hot: '3',
+        confirmado: '2',
+        congelado: '0',
+        cancelado: '2'
       }
     ]
   })
 }
 </script>
+
